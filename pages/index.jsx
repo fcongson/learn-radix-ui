@@ -6,6 +6,12 @@ import {
   DropdownTrigger,
   DropdownTriggerItem,
 } from "../components/Dropdown/Dropdown";
+import { XUIDropdown } from "../components/Dropdown/XUIWrapper/XUIDropdown";
+import {
+  XUIPickitem,
+  XUIPicklist,
+} from "../components/Dropdown/XUIWrapper/XUIDropdownPicklist";
+import { XUIDropdownToggled } from "../components/Dropdown/XUIWrapper/XUIDropdownToggled";
 import {
   Popover,
   PopoverArrow,
@@ -52,6 +58,37 @@ export default function Home() {
               </Dropdown>
             </DropdownContent>
           </Dropdown>
+
+          <XUIDropdownToggled
+            dropdown={
+              <XUIDropdown
+                onSelect={(value) => console.log(`selected ${value}`)}
+              >
+                <XUIPicklist>
+                  <XUIPickitem>xui pick item one</XUIPickitem>
+                  <XUIPickitem>xui pick item two</XUIPickitem>
+                  <XUIPickitem>xui pick item three</XUIPickitem>
+                </XUIPicklist>
+              </XUIDropdown>
+            }
+            trigger="xui dropdown trigger"
+            onOpen={() => console.log("onOpen")}
+          />
+          <XUIDropdownToggled
+            dropdown={
+              <XUIDropdown
+                onSelect={(value) => console.log(`selected ${value} 🔥`)}
+              >
+                <XUIPicklist>
+                  <XUIPickitem>xui pick item one</XUIPickitem>
+                  <XUIPickitem>xui pick item two</XUIPickitem>
+                  <XUIPickitem>xui pick item three</XUIPickitem>
+                </XUIPicklist>
+              </XUIDropdown>
+            }
+            trigger="xui 🔥"
+            onOpen={() => console.log("onOpen 🔥")}
+          />
         </div>
       </main>
 
