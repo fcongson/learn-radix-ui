@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState } from "react";
 import {
   Dropdown,
   DropdownContent,
@@ -7,6 +8,8 @@ import {
   DropdownTriggerItem,
 } from "../components/Dropdown/Dropdown";
 import { XUIDropdown } from "../components/Dropdown/XUIWrapper/XUIDropdown";
+import { XUIDropdownFooter } from "../components/Dropdown/XUIWrapper/XUIDropdownFooter";
+import { XUIDropdownHeader } from "../components/Dropdown/XUIWrapper/XUIDropdownHeader";
 import {
   XUIPickitem,
   XUIPicklist,
@@ -22,6 +25,9 @@ import {
 import styles from "./index.module.css";
 
 export default function Home() {
+  const [checkedOne, setCheckedOne] = useState(false);
+  const [checkedTwo, setCheckedTwo] = useState(false);
+  const [checkedThree, setCheckedThree] = useState(false);
   return (
     <div className="container">
       <Head>
@@ -77,12 +83,44 @@ export default function Home() {
           <XUIDropdownToggled
             dropdown={
               <XUIDropdown
+                header={
+                  <XUIDropdownHeader>
+                    <input type="text" placeholder="header" />
+                    <button>search</button>
+                  </XUIDropdownHeader>
+                }
+                footer={
+                  <XUIDropdownFooter>
+                    <button>footer</button>
+                  </XUIDropdownFooter>
+                }
                 onSelect={(value) => console.log(`selected ${value} 🔥`)}
               >
                 <XUIPicklist>
                   <XUIPickitem>xui pick item one</XUIPickitem>
                   <XUIPickitem>xui pick item two</XUIPickitem>
                   <XUIPickitem>xui pick item three</XUIPickitem>
+                  <XUIPickitem
+                    checked={checkedOne}
+                    onCheckedChange={setCheckedOne}
+                    isMultiSelect
+                  >
+                    checkbox one
+                  </XUIPickitem>
+                  <XUIPickitem
+                    checked={checkedTwo}
+                    onCheckedChange={setCheckedTwo}
+                    isMultiSelect
+                  >
+                    checkbox two
+                  </XUIPickitem>
+                  <XUIPickitem
+                    checked={checkedThree}
+                    onCheckedChange={setCheckedThree}
+                    isMultiSelect
+                  >
+                    checkbox three
+                  </XUIPickitem>
                 </XUIPicklist>
               </XUIDropdown>
             }
