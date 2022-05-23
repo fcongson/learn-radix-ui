@@ -1,0 +1,19 @@
+.trigger {
+  border: none;
+  background-color: violet;
+  padding: 1rem;
+}
+
+.content {
+  border: 1px solid violet;
+  padding: 1rem;
+}
+
+.arrow {
+  fill: violet;
+}
+
+.close {
+  border: none;
+  background-color: violet;
+}
